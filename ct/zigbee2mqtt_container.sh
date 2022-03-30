@@ -73,7 +73,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/setup/zigbee2mqtt_setup.sh
+wget -qL https://github.com/docmcfreckles/Proxmox/raw/local/setup/zigbee2mqtt_setup.sh
 
 load_module overlay
 

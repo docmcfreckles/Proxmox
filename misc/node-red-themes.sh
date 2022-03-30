@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/node-red-themes.sh)"
+# bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/node-red-themes.sh)"
 set -o errexit
 show_menu(){
     YW=`echo "\033[33m"`

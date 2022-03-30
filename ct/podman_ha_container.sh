@@ -93,7 +93,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/setup/podman_ha_setup.sh
+wget -qL https://github.com/docmcfreckles/Proxmox/raw/local/setup/podman_ha_setup.sh
 
 load_module overlay
 

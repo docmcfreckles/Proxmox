@@ -18,7 +18,7 @@ and attempt the *No-Nag* fix.
 Run the following in the Proxmox Shell. ⚠️ **PVE7 ONLY**
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/post_install.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/post_install.sh)"
 ```
 
 It's recommended to update Proxmox after running this script, before adding any VM/CT.
@@ -39,7 +39,7 @@ Cleaning unused kernel images is not only good because of a reduced grub menu, b
 Run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/kernel-clean.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/kernel-clean.sh)"
 ```
 ____________________________________________________________________________________________ 
 
@@ -57,7 +57,7 @@ Update All LXC's Fast & Easy
 Run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/update-lxcs.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/update-lxcs.sh)"
 ```
 ____________________________________________________________________________________________ 
 
@@ -95,7 +95,7 @@ ________________________________________________________________________________
 To create a new Proxmox Home Assistant OS VM, run the following in the Proxmox Shell
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/vm/haos_vm.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/vm/haos_vm.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  4GB RAM - 32GB Storage - 2vCPU ⚡</h3>
  
@@ -121,7 +121,7 @@ To create a new Proxmox Podman Home Assistant Container, run the following in th
  ([What is Podman?](https://youtu.be/lkg5QJsoCCQ))
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/podman_ha_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/podman_ha_container.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
  
@@ -147,14 +147,14 @@ Save and exit the editor with “Ctrl+O”, “Enter” and “Ctrl+X”
 
 Run in the Proxmox Shell
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/ha-copy-data-podman.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/ha-copy-data-podman.sh)"
  ```
 
 ⚙️ **To allow USB device passthrough:**
  
 Run in the Proxmox Shell. (**replace `106` with your LXC ID**)
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/usb-passthrough.sh)" -s 106
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/usb-passthrough.sh)" -s 106
 ```
  
 Reboot the LXC to apply the changes
@@ -163,7 +163,7 @@ Reboot the LXC to apply the changes
 
 Run in the LXC console
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/podman_hacs.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/podman_hacs.sh)"
 ```
 After install, reboot Home Assistant and **clear browser cache** then Add HACS integration.
 
@@ -199,7 +199,7 @@ ________________________________________________________________________________
 To create a new Proxmox Home Assistant Container, run the following in the Proxmox Shell.
  
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/homeassistant.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/homeassistant.sh)"
 ```
  
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
@@ -226,14 +226,14 @@ Save and exit the editor with “Ctrl+O”, “Enter” and “Ctrl+X”
 
 Run in the Proxmox Shell
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/ha-copy-data.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/ha-copy-data.sh)"
  ```
 
 ⚙️ **To Allow USB Device Passthrough:**
  
 Run in the Proxmox Shell. (**replace `106` with your LXC ID**)
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/usb-passthrough.sh)" -s 106
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/usb-passthrough.sh)" -s 106
 ```
  
 Reboot the LXC to apply the changes
@@ -243,12 +243,12 @@ Reboot the LXC to apply the changes
 
 Run in the LXC console
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/hacs.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/hacs.sh)"
 ```
 After install, reboot Home Assistant and **clear browser cache** then Add HACS integration.
 
 
-⚙️ [**Update Menu**](https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/images/update-menu.png)
+⚙️ [**Update Menu**](https://github.com/docmcfreckles/Proxmox/raw/local/misc/images/update-menu.png)
 
 Run in the LXC console
 ```yaml
@@ -258,7 +258,7 @@ Run in the LXC console
 
 Run in the LXC console
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/latest-update-menu.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/latest-update-menu.sh)"
 ```
  
 ____________________________________________________________________________________________ 
@@ -276,7 +276,7 @@ Homebridge allows you to integrate with smart home devices that do not natively 
 To create a new Proxmox Homebridge LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/homebridge.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/homebridge.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  1GB RAM - 4GB Storage - 1vCPU ⚡</h3>
@@ -331,7 +331,7 @@ Update from the Homebridge UI
 To create a new Proxmox ESPHome LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/esphome_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/esphome_container.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  1GB RAM - 4GB Storage - 2vCPU ⚡</h3>
@@ -362,7 +362,7 @@ ________________________________________________________________________________
 To create a new Proxmox Nginx Proxy Manager LXC Container, run the following in the Proxmox Shell.
 
 ```yaml
- bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/nginx-proxy-manager.sh)"
+ bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/nginx-proxy-manager.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  1GB RAM - 3GB Storage - 1vCPU ⚡</h3>
 
@@ -394,7 +394,7 @@ Add the following to your `configuration.yaml` in Home Assistant.
 
 Run in the LXC console
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/npm_update.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/npm_update.sh)"
 ```
 
  ____________________________________________________________________________________________ 
@@ -412,7 +412,7 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/l
 To create a new Proxmox MQTT LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/mqtt.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/mqtt.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
@@ -463,7 +463,7 @@ ________________________________________________________________________________
 To create a new Proxmox Node-RED LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/node-red.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/node-red.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  1GB RAM - 4GB Storage - 1vCPU ⚡</h3>
@@ -488,7 +488,7 @@ npm install -g --unsafe-perm node-red
 
 Run in the LXC console
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/node-red-themes.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/node-red-themes.sh)"
 ```
 
 ____________________________________________________________________________________________ 
@@ -498,14 +498,14 @@ ________________________________________________________________________________
 <details>
 <summary markdown="span"> Mariadb LXC </summary>
  
-<p align="center"><img src="https://mariadb.com/wp-content/webp-express/webp-images/doc-root/wp-content/themes/sage/dist/images/mariadb-logo-white.png.webp" alt="MariaDB"/><img src="https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/images/adminer_logo-cl.png" height="60"></p>
+<p align="center"><img src="https://mariadb.com/wp-content/webp-express/webp-images/doc-root/wp-content/themes/sage/dist/images/mariadb-logo-white.png.webp" alt="MariaDB"/><img src="https://github.com/docmcfreckles/Proxmox/raw/local/misc/images/adminer_logo-cl.png" height="60"></p>
 
 <h1 align="center" id="heading"> Mariadb LXC </h1>
 
 To create a new Proxmox Mariadb LXC, run the following in the Proxmox Shell.
  
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/mariadb.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/mariadb.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  1GB RAM - 4GB Storage - 1vCPU ⚡</h3>
@@ -598,7 +598,7 @@ Run in the LXC console
 ```yaml
 apt update && apt upgrade -y
 ```
-⚙️ [**Adminer**](https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/images/adminer.png) (formerly phpMinAdmin) is a full-featured database management tool
+⚙️ [**Adminer**](https://github.com/docmcfreckles/Proxmox/raw/local/misc/images/adminer.png) (formerly phpMinAdmin) is a full-featured database management tool
  
  `http://your-mariadb-lxc-ip/adminer/`
 
@@ -617,7 +617,7 @@ ________________________________________________________________________________
 To create a new Proxmox Zigbee2MQTT LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/zigbee2mqtt.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/zigbee2mqtt.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  1GB RAM - 4GB Storage - 2vCPU ⚡</h3>
 
@@ -679,7 +679,7 @@ bash /opt/zigbee2mqtt/update.sh
 
 Run in the Proxmox Shell
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/z2m-copy-data.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/z2m-copy-data.sh)"
  ```
 
 ____________________________________________________________________________________________ 
@@ -696,7 +696,7 @@ ________________________________________________________________________________
 To create a new Proxmox Zwavejs2MQTT LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/zwavejs2mqtt_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/zwavejs2mqtt_container.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  1GB RAM - 4GB Storage - 2vCPU ⚡</h3>
 
@@ -717,7 +717,7 @@ ________________________________________________________________________________
 To create a new Proxmox InfluxDB LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/influxdb.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/influxdb.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
@@ -759,7 +759,7 @@ ________________________________________________________________________________
 To create a new Proxmox Grafana LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/grafana.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/grafana.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
@@ -800,7 +800,7 @@ ________________________________________________________________________________
 To create a new Proxmox Debian 11 (curl. sudo, auto login) LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/debian.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/debian.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
@@ -829,7 +829,7 @@ ________________________________________________________________________________
 To create a new Proxmox Ubuntu 21.10 (curl. sudo, auto login) LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/ubuntu.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/ubuntu.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
@@ -849,7 +849,7 @@ ________________________________________________________________________________
 
 <details>
 <summary markdown="span"> GamUntu LXC</summary>
- <p align="center"><img src="https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/images/gamuntu1.png" alt="GamUntu" height="100"/></p>
+ <p align="center"><img src="https://github.com/docmcfreckles/Proxmox/raw/local/misc/images/gamuntu1.png" alt="GamUntu" height="100"/></p>
 <h1 align="center" id="heading"> GamUntu LXC </h1>
 
 GamUntu is Ubuntu 21.10, Docker, Docker Compose, ZFS Support, USB Passthrough, Webmin System Administration and Hardware Acceleration all baked in!
@@ -857,7 +857,7 @@ GamUntu is Ubuntu 21.10, Docker, Docker Compose, ZFS Support, USB Passthrough, W
 To create a new Proxmox GamUntu LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/gamuntu_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/gamuntu_container.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
  
@@ -886,7 +886,7 @@ ________________________________________________________________________________
 To create a new Proxmox Plex Media Server LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/plex_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/plex_container.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
 
@@ -904,7 +904,7 @@ apt update && apt upgrade -y
 
 Run in the Proxmox Shell
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/pms-copy-data.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/pms-copy-data.sh)"
  ```
 
 ____________________________________________________________________________________________ 
@@ -919,7 +919,7 @@ ________________________________________________________________________________
 To create a new Proxmox Jellyfin Media Server LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/jellyfin_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/jellyfin_container.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
 
@@ -947,7 +947,7 @@ ________________________________________________________________________________
 To create a new Proxmox Pi-hole LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/pihole_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/pihole_container.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
  
@@ -980,7 +980,7 @@ ________________________________________________________________________________
 To create a new Proxmox AdGuard Home LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/adguard.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/adguard.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
@@ -1011,7 +1011,7 @@ Dashy helps you organize your self-hosted services by making them accessible fro
 To create a new Proxmox Dashy LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/dashy.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/dashy.sh)"
 ```
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 3GB Storage - 2vCPU ⚡</h3>
  
@@ -1033,7 +1033,7 @@ Sync files from app to server, share photos & videos, back up your data and stay
 To create a new Proxmox Daemon Sync Server LXC, run the following in the Proxmox Shell.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/daemonsync.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/daemonsync.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 8GB Storage - 1vCPU ⚡</h3>
@@ -1056,7 +1056,7 @@ ________________________________________________________________________________
 To create a new Proxmox MotionEye NVR LXC, run the following in the Proxmox Shell.
 
 ```
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/motioneye_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/motioneye_container.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  2GB RAM - 8GB Storage - 2vCPU ⚡</h3>
@@ -1095,10 +1095,10 @@ ________________________________________________________________________________
 
 <h1 align="center" id="heading"> Webmin System Administration </h1>
 
-To Install Webmin System Administration [(Screenshot)](https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/images/file-manager.png), ⚠️ run the following in the LXC console.
+To Install Webmin System Administration [(Screenshot)](https://github.com/docmcfreckles/Proxmox/raw/local/misc/images/file-manager.png), ⚠️ run the following in the LXC console.
 
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/webmin.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/webmin.sh)"
 ```
 
 If you prefer to manage all aspects of your Proxmox LXC from a graphical interface instead of the command line interface, Webmin might be right for you.
@@ -1143,7 +1143,7 @@ ________________________________________________________________________________
 To create a new Proxmox WireGuard LXC, run the following in the Proxmox Shell.
 
 ```
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/wireguard.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/wireguard.sh)"
 ```
 
 <h3 align="center" id="heading">⚡ Default Settings:  512MiB RAM - 2GB Storage - 1vCPU ⚡</h3>
@@ -1182,7 +1182,7 @@ ________________________________________________________________________________
 To create a new Proxmox Vaultwarden LXC, run the following in the Proxmox Shell.
 
 ```
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/ct/vault_container.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/vault_container.sh)"
 ```
 ⚠️Vaultwarden needs to be behind a proxy (Nginx Proxy Manager) to obtain HTTPS and to allow clients to connect.
 
@@ -1199,7 +1199,7 @@ Expect 30+ minute install time.
 
 Run in the LXC console
 ```yaml
-bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/vaultwarden-update.sh)"
+bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/vaultwarden-update.sh)"
 ```
 
 ____________________________________________________________________________________________ 

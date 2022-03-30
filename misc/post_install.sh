@@ -27,4 +27,4 @@ echo "DPkg::Post-Invoke { \"dpkg -V proxmox-widget-toolkit | grep -q '/proxmoxli
 apt --reinstall install proxmox-widget-toolkit &>/dev/null
 echo -e "\e[1;33m Finished....Please Update Proxmox \e[0m"
 
-# bash -c "$(wget -qLO - https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/misc/post_install.sh)"
+# bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/misc/post_install.sh)"

@@ -73,7 +73,7 @@ function load_module() {
 TEMP_DIR=$(mktemp -d)
 pushd $TEMP_DIR >/dev/null
 
-wget -qL https://raw.githubusercontent.com/docmcfreckles/Proxmox/local/setup/node-red_setup.sh
+wget -qL https://github.com/docmcfreckles/Proxmox/raw/local/setup/node-red_setup.sh
 
 load_module overlay
 
