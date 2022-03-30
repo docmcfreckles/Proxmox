@@ -36,8 +36,8 @@ show_menu(){
 }
 
 option_picked(){
-    message=${@:-"${CL}Error: No message passed"}
-    printf " ${YW}${message}${CL}\n"
+    message1=${@:-"${CL}Error: No message passed"}
+    printf " ${YW}${message1}${CL}\n"
 }
 show_menu
 while [ $opt != '' ]
@@ -70,7 +70,144 @@ while [ $opt != '' ]
       esac
     fi
   done
-  
+show_menu2(){
+    printf "    ${YW} 1)${GN} Use Automatic Login ${CL}\n"
+    printf "    ${YW} 2)${GN} Use Password (changeme) ${CL}\n"
+
+    printf "Please choose a Password Type and hit enter or ${RD}x${CL} to exit."
+    read opt
+}
+
+option_picked(){
+    message2=${@:-"${CL}Error: No message passed"}
+    printf " ${YW}${message1}${CL}\n"
+    printf " ${YW}${message2}${CL}\n"
+}
+show_menu2
+while [ $opt != '' ]
+    do
+    if [ $opt = '' ]; then
+      exit;
+    else
+      case $opt in
+        1) clear;
+            header_info;
+            option_picked "Using Automatic Login";
+            PW=" "
+            break;
+        ;;
+        2) clear;
+            header_info;
+            option_picked "Using Password (changeme)";
+            PW="-password changeme"
+            break;
+        ;;
+
+        x)exit;
+        ;;
+        \n)exit;
+        ;;
+        *)clear;
+            option_picked "Please choose a Password Type from the menu";
+            show_menu2;
+        ;;
+      esac
+    fi
+  done
+show_menu3(){
+    printf "    ${RD} If Using ZFS, You Have Storage Driver Options${CL}\n"
+    printf "    ${RD} Non ZFS, Select Standard overlay2 Storage Driver${CL}\n"
+    printf "    ${YW} 1)${GN} Use fuse-overlayfs Storage Driver${CL}\n"
+    printf "    ${YW} 2)${GN} Use Standard overlay2 Storage Driver${CL}\n"
+
+    printf "Please choose a Storage Driver and hit enter or ${RD}x${CL} to exit."
+    read opt
+}
+
+option_picked(){
+    message3=${@:-"${CL}Error: No message passed"}
+    printf " ${YW}${message1}${CL}\n"
+    printf " ${YW}${message2}${CL}\n"
+    printf " ${YW}${message3}${CL}\n"
+}
+show_menu3
+while [ $opt != '' ]
+    do
+    if [ $opt = '' ]; then
+      exit;
+    else
+      case $opt in
+        1) clear;
+            header_info;
+            option_picked "Using fuse-overlayfs Storage Driver";
+            STORAGE_DRIVER="fuse"
+            break;
+        ;;
+        2) clear;
+            header_info;
+            option_picked "Using overlay2 Storage Driver";
+            STORAGE_DRIVER=" "
+            break;
+        ;;
+
+        x)exit;
+        ;;
+        \n)exit;
+        ;;
+        *)clear;
+            option_picked "Please choose a Storage Driver from the menu";
+            show_menu3;
+        ;;
+      esac
+    fi
+  done
+show_menu4(){
+    printf "    ${YW} 1)${GN} Automatic DHCP ${CL}\n"
+    printf "    ${YW} 2)${GN} Manual DHCP ${CL}\n"
+
+    printf "Please choose a DHCP Type and hit enter or ${RD}x${CL} to exit."
+    read opt
+}
+
+option_picked(){
+    message4=${@:-"${CL}Error: No message passed"}
+    printf " ${YW}${message1}${CL}\n"
+    printf " ${YW}${message2}${CL}\n"
+    printf " ${YW}${message3}${CL}\n"
+    printf " ${YW}${message4}${CL}\n"
+}
+show_menu4
+while [ $opt != '' ]
+    do
+    if [ $opt = '' ]; then
+      exit;
+    else
+      case $opt in
+        1) clear;
+            header_info;
+            option_picked "Using Automatic DHCP";
+            DHCP=" "
+            break;
+        ;;
+        2) clear;
+            header_info;
+            option_picked "Using Manual DHCP";
+            DHCP="1"
+            break;
+        ;;
+
+        x)exit;
+        ;;
+        \n)exit;
+        ;;
+        *)clear;
+            option_picked "Please choose a DHCP Type from the menu";
+            show_menu4;
+        ;;
+      esac
+    fi
+  done
+   
 set -o errexit
 set -o errtrace
 set -o nounset
@@ -117,8 +254,14 @@ function cleanup() {
   popd >/dev/null
   rm -rf $TEMP_DIR
 }
- if [ "$IM" == "1" ]; then 
- FEATURES="nesting=1,keyctl=1,mknod=1"
+ if [ "$IM" == "1" ] && [ "$STORAGE_DRIVER" == " " ]; then 
+ FEATURES="nesting=1,keyctl=1"
+ elif
+ [ "$IM" == "1" ] && [ "$STORAGE_DRIVER" == "fuse" ]; then 
+ FEATURES="nesting=1,keyctl=1,fuse=1"
+ elif
+ [ "$IM" == "0" ] && [ "$STORAGE_DRIVER" == "fuse" ]; then 
+ FEATURES="nesting=1,fuse=1"
  else
  FEATURES="nesting=1"
  fi
@@ -129,7 +272,7 @@ pushd $TEMP_DIR >/dev/null
 export CTID=$(pvesh get /cluster/nextid)
 export PCT_OSTYPE=debian
 export PCT_OSVERSION=11
-export PCT_DISK_SIZE=8
+export PCT_DISK_SIZE=16
 export PCT_OPTIONS="
   -features $FEATURES
   -hostname homeassistant
@@ -138,27 +281,44 @@ export PCT_OPTIONS="
   -cores 2
   -memory 2048
   -unprivileged ${IM}
+  ${PW}
 "
 bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/create_lxc.sh)" || exit
 
 STORAGE_TYPE=$(pvesm status -storage $(pct config $CTID | grep rootfs | awk -F ":" '{print $2}') | awk 'NR>1 {print $2}')
 if [ "$STORAGE_TYPE" == "zfspool" ]; then
   wget -qL -O fuse-overlayfs https://github.com/containers/fuse-overlayfs/releases/download/v1.8.2/fuse-overlayfs-x86_64
-  warn "Some addons may not work due to ZFS not supporting 'fallocate'."
+  warn "Some containers may not work properly due to ZFS not supporting 'fallocate'."
 fi
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
 lxc.cgroup2.devices.allow: a
 lxc.cap.drop:
 EOF
+if [ "$DHCP" == "1" ]; then
+MAC=$(pct config $CTID \
+| grep -i hwaddr \
+| awk '{print substr($2, 31, length($3) 17 ) }') \
+
+echo -e "MAC Address ${BL}$MAC${CL}"
+
+dhcp_reservation(){
+    printf "Please set DHCP reservation and press Enter."
+    read
+}
+dhcp_reservation
+fi
 
 echo -en "${GN} Starting LXC Container... "
 pct start $CTID
-if [ "$STORAGE_TYPE" == "zfspool" ]; then
-pct push $CTID fuse-overlayfs /usr/local/bin/fuse-overlayfs -perms 755
-info "${BL}Using fuse-overlayfs.${CL}"
-fi
 echo -e "${CM}${CL} \r"
+
+ if [ "$STORAGE_TYPE" == "zfspool" ] && [ "$STORAGE_DRIVER" == "fuse" ]; then
+   pct push $CTID fuse-overlayfs /usr/local/bin/fuse-overlayfs -perms 755
+   info "Using ${BL}fuse-overlayfs${CL} Storage Driver."
+   else
+   info "Using ${BL}overlay2${CL} Storage Driver."
+ fi
 
 alias lxc-cmd="lxc-attach -n $CTID --"
 

@@ -2,12 +2,143 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+### ⚠️ [IMPORTANT NOTICE](https://github.com/tteck/Proxmox/issues/71#issue-1169207591)
+
+## 2022-03-28
+
+### Changed
+
+- **Docker LXC**
+  - Add Docker Compose Option (@wovalle)
+
+## 2022-03-27
+
+### Changed
+
+- **Heimdall Dashboard LXC**
+  - New Update Script
+
+## 2022-03-26
+
+### Changed
+
+- **UniFi Network Application LXC**
+  - New Script V2
+- **Omada Controller LXC**
+  - New Script V2
+
+## 2022-03-25
+
+### Changed
+
+- **Proxmox CPU Scaling Governor**
+  - New Script
+
+
+## 2022-03-24
+
+### Changed
+
+- **Plex Media Server LXC**
+  - Switch to Ubuntu 20.04 to support HDR tone mapping
+- **Docker LXC**
+  - Add Portainer Option
+
+## 2022-03-23
+
+### Changed
+
+- **Heimdall Dashboard LXC**
+  - New Script V2
+
+## 2022-03-20
+
+### Changed
+
+- **Scripts** (V2)
+  - ADD choose between Automatic or Manual DHCP  
+
+## 2022-03-18
+
+### Changed
+
+- **Technitium DNS LXC**
+  - New Script V2
+- **WireGuard LXC**
+  - Add WGDashboard
+
+## 2022-03-17
+
+### Changed
+
+- **Docker LXC**
+  - New Script V2
+
+## 2022-03-16
+
+### Changed
+
+- **PhotoPrism LXC**
+  - New Update/Branch Script
+
+## 2022-03-15
+
+### Changed
+
+- **Dashy LXC**
+  - New Update Script
+
+## 2022-03-14
+
+### Changed
+
+- **Zwavejs2MQTT LXC**
+  - New Update Script
+
+## 2022-03-12
+
+### Changed
+
+- **PhotoPrism LXC**
+  - New Script V2
+
+## 2022-03-11
+
+### Changed
+
+- **Vaultwarden LXC**
+  - New V2 Install Script
+
+## 2022-03-08
+
+### Changed
+
+- **Scripts** (V2)
+  - Choose between Privileged or Unprivileged CT and Automatic or Password Login 
+- **ESPHome LXC**
+  - New V2 Install Script
+- **Zwavejs2MQTT LXC**
+  - New V2 Install Script
+- **Motioneye LXC**
+  - New V2 Install Script
+- **Pihole LXC**
+  - New V2 Install Script
+- **GamUntu LXC**
+  - New V2 Install Script
+
+## 2022-03-06
+
+### Changed
+
+- **Zwavejs2MQTT LXC**
+  - New GUI script to copy data from one Zwavejs2MQTT LXC to another Zwavejs2MQTT LXC
+
 ## 2022-03-05
 
 ### Changed
 
 - **Homebridge LXC**
-  - New Script
+  - New Script V2
 
 ## 2022-03-04
 
@@ -21,7 +152,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - **WireGuard LXC**
-  - New Script
+  - New Script V2
 
 ## 2022-03-02
 
@@ -30,18 +161,18 @@ All notable changes to this project will be documented in this file.
 - **Proxmox LXC Updater**
   - New Script
 - **Dashy LXC**
-  - New Script
+  - New Script V2
 - **Grafana LXC**
-  - New Script
+  - New Script V2
 - **InfluxDB/Telegraf LXC**
-  - New Script
+  - New Script V2
 
 ## 2022-03-01
 
 ### Changed
 
 - **Daemon Sync Server LXC**
-  - New Script
+  - New Script V2
 
 ## 2022-02-28
 
@@ -55,16 +186,16 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - **Nginx Proxy Manager LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 
 ## 2022-02-23
 
 ### Changed
 
 - **Adguard Home LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 - **Zigbee2MQTT LXC**
-  - Using NEW Privileged Install Script
+  - New V2 Install Script
 - **Home Assistant Container LXC**
   - Update Menu usability improvements
 
@@ -73,17 +204,17 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - **Home Assistant Container LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 - **Node-Red LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 - **Mariadb LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 - **MQTT LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 - **Debian 11 LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 - **Ubuntu 21.10 LXC**
-  - Using NEW Privileged/Unprivileged Install Script
+  - New V2 Install Script
 
 ## 2022-02-20
 

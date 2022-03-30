@@ -36,8 +36,8 @@ show_menu(){
 }
 
 option_picked(){
-    message=${@:-"${CL}Error: No message passed"}
-    printf " ${YW}${message}${CL}\n"
+    message1=${@:-"${CL}Error: No message passed"}
+    printf " ${YW}${message1}${CL}\n"
 }
 show_menu
 while [ $opt != '' ]
@@ -66,6 +66,95 @@ while [ $opt != '' ]
         *)clear;
             option_picked "Please choose a Install Method from the menu";
             show_menu;
+        ;;
+      esac
+    fi
+  done
+show_menu2(){
+    printf "    ${YW} 1)${GN} Use Automatic Login ${CL}\n"
+    printf "    ${YW} 2)${GN} Use Password (changeme) ${CL}\n"
+
+    printf "Please choose a Password Type and hit enter or ${RD}x${CL} to exit."
+    read opt
+}
+
+option_picked(){
+    message2=${@:-"${CL}Error: No message passed"}
+    printf " ${YW}${message1}${CL}\n"
+    printf " ${YW}${message2}${CL}\n"
+}
+show_menu2
+while [ $opt != '' ]
+    do
+    if [ $opt = '' ]; then
+      exit;
+    else
+      case $opt in
+        1) clear;
+            header_info;
+            option_picked "Using Automatic Login";
+            PW=" "
+            break;
+        ;;
+        2) clear;
+            header_info;
+            option_picked "Using Password (changeme)";
+            PW="-password changeme"
+            break;
+        ;;
+
+        x)exit;
+        ;;
+        \n)exit;
+        ;;
+        *)clear;
+            option_picked "Please choose a Password Type from the menu";
+            show_menu2;
+        ;;
+      esac
+    fi
+  done
+show_menu3(){
+    printf "    ${YW} 1)${GN} Automatic DHCP ${CL}\n"
+    printf "    ${YW} 2)${GN} Manual DHCP ${CL}\n"
+
+    printf "Please choose a DHCP Type and hit enter or ${RD}x${CL} to exit."
+    read opt
+}
+
+option_picked(){
+    message3=${@:-"${CL}Error: No message passed"}
+    printf " ${YW}${message1}${CL}\n"
+    printf " ${YW}${message2}${CL}\n"
+    printf " ${YW}${message3}${CL}\n"
+}
+show_menu3
+while [ $opt != '' ]
+    do
+    if [ $opt = '' ]; then
+      exit;
+    else
+      case $opt in
+        1) clear;
+            header_info;
+            option_picked "Using Automatic DHCP";
+            DHCP=" "
+            break;
+        ;;
+        2) clear;
+            header_info;
+            option_picked "Using Manual DHCP";
+            DHCP="1"
+            break;
+        ;;
+
+        x)exit;
+        ;;
+        \n)exit;
+        ;;
+        *)clear;
+            option_picked "Please choose a DHCP Type from the menu";
+            show_menu3;
         ;;
       esac
     fi
@@ -118,7 +207,7 @@ function cleanup() {
   rm -rf $TEMP_DIR
 }
  if [ "$IM" == "1" ]; then 
- FEATURES="nesting=1,keyctl=1,mknod=1"
+ FEATURES="nesting=1,keyctl=1"
  else
  FEATURES="nesting=1"
  fi
@@ -138,12 +227,26 @@ export PCT_OPTIONS="
   -cores 1
   -memory 1024
   -unprivileged ${IM}
+  ${PW}
 "
 bash -c "$(wget -qLO - https://github.com/docmcfreckles/Proxmox/raw/local/ct/create_lxc.sh)" || exit
 
 STORAGE_TYPE=$(pvesm status -storage $(pct config $CTID | grep rootfs | awk -F ":" '{print $2}') | awk 'NR>1 {print $2}')
 if [ "$STORAGE_TYPE" == "zfspool" ]; then
   warn "Some addons may not work due to ZFS not supporting 'fallocate'."
+fi
+if [ "$DHCP" == "1" ]; then
+MAC=$(pct config $CTID \
+| grep -i hwaddr \
+| awk '{print substr($2, 31, length($3) 17 ) }') \
+
+echo -e "MAC Address ${BL}$MAC${CL}"
+
+dhcp_reservation(){
+    printf "Please set DHCP reservation and press Enter."
+    read
+}
+dhcp_reservation
 fi
 
 echo -en "${GN} Starting LXC Container... "

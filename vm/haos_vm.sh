@@ -9,8 +9,8 @@ while true; do
     esac
 done
 clear
-CL=`echo "\033[m"`
 BL=`echo "\033[36m"`
+CL=`echo "\033[m"`
 function header_info {
 echo -e "${BL}
         _    _          ____   _____ 
@@ -134,7 +134,7 @@ case $FILE in
 esac
 STORAGE_TYPE=$(pvesm status -storage $STORAGE | awk 'NR>1 {print $2}')
 case $STORAGE_TYPE in
-  nfs|dir)
+  btrfs|nfs|dir)
         DISK_EXT=".qcow2"
         DISK_REF="$VMID/"
         IMPORT_OPT="-format qcow2"
